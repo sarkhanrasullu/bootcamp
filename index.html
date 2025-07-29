@@ -24,12 +24,12 @@
                 linear-gradient(135deg, #000428 0%, #004e92 100%);
             min-height: 100vh;
             overflow-x: hidden;
-            animation: backgroundPulse 8s ease-in-out infinite alternate;
+            animation: backgroundPulse 12s ease-in-out infinite alternate;
         }
         
         @keyframes backgroundPulse {
             0% { filter: hue-rotate(0deg) brightness(1); }
-            100% { filter: hue-rotate(45deg) brightness(1.2); }
+            100% { filter: hue-rotate(30deg) brightness(1.1); }
         }
         
         .container {
@@ -135,8 +135,8 @@
         }
         
         @keyframes textShock {
-            0% { transform: scale(1) rotate(0deg); }
-            100% { transform: scale(1.05) rotate(1deg); }
+            0% { transform: scale(1); }
+            100% { transform: scale(1.02); }
         }
         
         @keyframes gradientShift {
@@ -155,7 +155,7 @@
         
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.02); }
+            50% { opacity: 0.9; transform: scale(1.01); }
         }
         
         .content {
@@ -264,8 +264,8 @@
         }
         
         @keyframes techShock {
-            0%, 100% { transform: scale(1.1) rotateY(10deg) translateX(0); }
-            50% { transform: scale(1.1) rotateY(10deg) translateX(2px); }
+            0%, 100% { transform: scale(1.1) rotateY(10deg); }
+            50% { transform: scale(1.1) rotateY(10deg); }
         }
         
         .tech-item::before {
@@ -303,8 +303,8 @@
                 box-shadow: 0 0 40px rgba(255,23,68,0.3); 
             }
             50% { 
-                transform: scale(1.02); 
-                box-shadow: 0 0 60px rgba(101,31,255,0.5); 
+                transform: scale(1.01); 
+                box-shadow: 0 0 50px rgba(101,31,255,0.4); 
             }
         }
         
@@ -395,6 +395,37 @@
             z-index: 1000;
         }
         
+        .whatsapp-btn {
+            display: inline-block;
+            background: linear-gradient(145deg, #25d366, #128c7e);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+            animation: whatsappShock 0.5s ease-in-out infinite;
+        }
+        
+        @keyframes whatsappPulse {
+            0%, 100% { box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+            50% { box-shadow: 0 8px 20px rgba(37, 211, 102, 0.5); }
+        }
+        
+        @keyframes whatsappShock {
+            0%, 100% { transform: scale(1.05); }
+            50% { transform: scale(1.08); }
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -475,6 +506,10 @@
                     <p>⚠️ <strong>DİQQƏT:</strong> Bu shock bootcamp yalnız Spring Boot, HTML, CSS bilənlər üçündür. Hazır deyilsənsə - hazırlaş və gəl!</p>
                     <br>
                     <p><strong>🔥 ÖZ GƏLECƏYİNİ İNDİ YAŞA! 🔥</strong></p>
+                    <br>
+                    <a href="https://wa.me/994512918313?text=Salam! Bootcamp haqqında məlumat istəyirəm." class="whatsapp-btn" target="_blank">
+                        📱 WhatsApp ilə əlaqə
+                    </a>
                 </div>
             </div>
         </div>
@@ -531,24 +566,6 @@
                 });
             });
             
-            const card = document.querySelector('.card');
-            card.addEventListener('mousemove', function(e) {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
-            });
         });
     </script>
 </body>
